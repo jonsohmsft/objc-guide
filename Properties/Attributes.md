@@ -51,8 +51,9 @@ Why does it delay the copy? Well, considering the use case where you might const
 NSSet<NSNumber *> *GetLotteryPicks() { 
     NSMutableSet<NSNumber *> *numbers = [[NSMutableSet alloc] init]; 
     while ([numbers count]  < 6) {
-        [numbers addObject:@(rand() % 60)];  }  
-        return [numbers copy]; 
-    }
+        [numbers addObject:@(rand() % 60)];
+    }  
+    return [numbers copy]; 
+}
 ```
 Since we create the mutable set just to build it and return it, we never end up doing any real copy of all of the objects in the set.
